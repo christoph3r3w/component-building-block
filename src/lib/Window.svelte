@@ -44,3 +44,27 @@
 	</section>
 	{/if}
 {/snippet}
+
+{#if role == 'window'}
+	<!-- window container -->
+	<main class="contain {CLASS}" style="background-color:{color};" {...props} >
+		{@render B()}
+	</main>
+{:else if role == 'child'}
+	<!-- any container inside the main container -->
+	<div class="contain child-container {CLASS}" style="background-color:{color};" {...props}>
+		{@render A()}
+	</div>
+{:else if role == 'buttonBox'}
+	<!-- for containers with multiple buttons -->
+	<div class="contain buttonBox {CLASS}" style="background-color:{color};" {...props}>
+		{@render A()}
+	</div>
+{:else if role == 'header'}
+	<!-- for the main header content of a section  -->
+	<div class="contain header {CLASS}" {...props}>
+		{@render B()}
+	</div>
+{/if}
+
+
